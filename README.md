@@ -25,7 +25,7 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 
 ### Connection
 
-![3DLidarScanner with stepper connections](fritzing/3DLidarScanner-v2-connections)
+![3DLidarScanner with stepper connections](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/3DLidarScanner-v2-connections.png?raw=true)
 
 ### Library needed : 
 - TFMPlus : [https://github.com/budryerson/TFMini-Plus][(https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the platformio.init file and therefore should directly be downloaded by PlatformIO extension of VSCode.
