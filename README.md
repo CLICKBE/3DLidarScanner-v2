@@ -55,7 +55,8 @@ With :
 
 
 ## Parsing data to CSV files
-- stepperScaneer-serial2CSV.py 
+
+The `stepperScaneer-serial2CSV.py` python script is receiving serial data from the Arduino and stores it in a csv file. 
 
 ## 3D Visualization
 
