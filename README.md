@@ -60,6 +60,8 @@ The `stepperScanner-serial2CSV.py` python script establishes serial communicatio
 Usage is as follows (one can use `python stepperScaneer-serial2CSV.py -h` to check on the available option arguments) : 
     `python stepperScanner-serial2CSV.py -p YOUR_ARDUINO_SERIAL_PORT -b 115200 -f /your/filepath/to/the/data/storage.csv`
 
+Once the script is launched, the serial commands described above can be used to control the scanner.
+
 ## 3D Visualization
 
 To perform a quick 3D visualization based on the serial data you can use the Processing script developed by Dana Peters : [LidarScanner.pde](https://drive.google.com/file/d/1D5wfzA8i0Pzh4qe-1skmpnqmhrvaq9d3/view?usp=drive_web) who also developped a [3D LiDAR scanner](https://www.qcontinuum.org/lidar-scanner).

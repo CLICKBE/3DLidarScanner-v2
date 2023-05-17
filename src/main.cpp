@@ -253,18 +253,20 @@ void loop() {
         }
       }
     }
-  Serial.println( "stop" );
+  Serial.println( "end" );
   break;
 
 
   case 105 : // i to display info from the scanner setup
     displayInfo();
+    Serial.println( "end" );
     break;
 
   case 118 : // v to set vertical offset (the command must be followed by an int)
     inbyte = Serial.read();
     vertical_offset = Serial.parseInt();
     Serial.println( "---- Modifying vertical offset, new value : " + String( vertical_offset ) );
+    Serial.println( "end" );
     //displayInfo();
     break;
 
@@ -272,6 +274,7 @@ void loop() {
     inbyte = Serial.read();
     horizontal_offset = Serial.parseInt();
     Serial.println( "---- Modifying horizontal offset, new value : " + String( horizontal_offset ) );
+    Serial.println( "end" );
     
     break;
   }

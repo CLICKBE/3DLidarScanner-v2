@@ -36,9 +36,20 @@ def checkFileAndIncrement( folder_path, pattern ) :
 
 def main (args) :
 
-    print( '--- Connecting to port : ' + args.port + ' at ' + str( args.baudrate )  +' bauds' )
     filename = args.file
+    ## TOCHECK : if it does what it's supposed to
+    folder_path = os.path.dirname( filename )
+    if folder_path == '' : folder_path = '.'    
+    filename = os.path.join( folder_path, filename )
+    
+    if( os.path.isfile( filename ) ) :
+        print( 'ERROR : Filename ' + filename + ' already exists, please enter a different filename.' )   
+        sys.exit( 0 )
+    else : 
+        print( 'File doesn\'t exist')
+
     dataSerie = serial.Serial( port = args.port, baudrate = args.baudrate)
+    print( '--- Connecting to port : ' + args.port + ' at ' + str( args.baudrate )  +' bauds' )
 
     listG = []
     nb_of_scan = 0
@@ -47,28 +58,9 @@ def main (args) :
     while True :
         data = input()
         #print( data )
-        dataSerie.write(str.encode(data))
+        dataSerie.write( str.encode( data ) )
         
-        if( data == 's' or data == 'y' ) :
-            nb_of_scan += 1
-            dimension = ''
-            suffix = ''
-
-            if( data == 's' ):
-                dimension = '3D'
-            elif( data =='y' ):
-                dimension == '2D'
-            
-            ## TOCHECK : if it does what it's supposed to
-            folder_path = os.path.dirname( filename )
-            if folder_path == '' : folder_path = '.'    
-            split = os.path.basename( filename ).split( '.' )
-            filename = os.path.join( folder_path, split[ 0 ] + "-" + dimension + ".csv" )
-            
-            if( os.path.isfile( filename ) ) :
-                print( 'Filename ' + filename + 'already exists, please enter a different filename.' )   
-                sys.exit( 1 )
-                
+        if( data == 's' or data == 'y' ) :          
 
             while True:
                 # sleep(0.1)
@@ -79,7 +71,7 @@ def main (args) :
 
                 print(mesure1)
 
-                if mesureUtf == "stop":
+                if mesureUtf == "end":
 
                     with open( filename, 'w' ) as f :
                         writer = csv.writer( f )
@@ -89,6 +81,15 @@ def main (args) :
                 else: ## TODO : add all elements not just xYZ and then during parsing put them in the right dict keys
                     #listG.append( [ mesure1[ 6 ], mesure1[ 7 ], mesure1[ 8 ] + ";"] )
                     listG.append( mesureUtf )
+
+        ## TOCHECK : do other serial commands send their feedback    
+        else : ## you sent commands different from scanning commands
+            data_raw = dataSerie.readline()
+            if( data_raw == 'end' ) : 
+                break 
+            else : 
+                print( data_raw )
+
         #else :
         #    while True:
         #        bytesToRead = dataSerie.inWaiting()
