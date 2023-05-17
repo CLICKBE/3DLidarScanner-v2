@@ -9,10 +9,10 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 | The 3D LiDAR scanner| Example of 3D visualisation of the scanning |
 
 ## Files in the repository
-- MWE-scanner_stepper.ino : file to be uploaded to the Arduino Uno board
-- stepperScaneer-serial2CSV.py : script to save scan data into a CSV file
+- src/main.cpp : file to be uploaded to the Arduino Uno board
+- src/stepperScanner-serial2CSV.py : script to save scan data into a CSV file
 - 3D_supports : folder containing different 3D models for supports made 
-- LidarScannerVisualizer.pde : [Processing](https://processing.org/) script receiving serial command and displaying 3D view of the scene based on the xyz coordinates comming from the scanner
+- fritzing : [Fritzing](https://fritzing.org/) file used to draw the connections picture
 
 ## Using the 3D LiDAR scanner v2
 
@@ -55,7 +55,10 @@ With :
 
 
 ## Parsing data to CSV files
-- stepperScaneer-serial2CSV.py 
+The `stepperScanner-serial2CSV.py` python script establishes serial communication with the Arduino Uno used for the 3D Lidar scanner. Once the script is launched, it stores incoming data (`x y z h_idx v_idx distance`) into a csv file.
+
+Usage is as follows (one can use `python stepperScaneer-serial2CSV.py -h` to check on the available option arguments) : 
+    `python stepperScanner-serial2CSV.py -p YOUR_ARDUINO_SERIAL_PORT -b 115200 -f /your/filepath/to/the/data/storage.csv`
 
 ## 3D Visualization
 
