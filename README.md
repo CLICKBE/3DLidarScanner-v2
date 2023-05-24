@@ -1,4 +1,4 @@
-# 3D LiDAR scanner with stepper motors
+# 3D LiDAR scanner v2 - With stepper motors
 
 This repository demonstrates a homemade 3D LiDAR scanner made out of a [Benewake TF-Mini](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) LiDAR sensor and 2 stepper motors [NEMA17](). This scanner can produce 3D cloud point of spaces.
 The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed bracket. This stepper is fixed to the second stepper arm through another bracket. 
@@ -23,13 +23,17 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 - External power : 12V, 2A
 - (optional) Maker Beam aluminium profiles and hardware or other.
 
+!!!Check !!!
+
 ### Connection
 
 ![3DLidarScanner with stepper connections](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/fritzing/3DLidarScanner-v2-connections.png?raw=true)
 
+Note that this diagram replicates the use of the Arduino CNC Shield v3 by using the same pin to connect the two drivers.
+
 ### Library needed : 
-- TFMPlus : [https://github.com/budryerson/TFMini-Plus][(https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the platformio.init file and therefore should directly be downloaded by PlatformIO extension of VSCode.
-- SoftwareSerial : included into Arduino framework
+- TFMPlus : [https://github.com/budryerson/TFMini-Plus][(https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
+- SoftwareSerial : included in Arduino framework
 
 ### Scanner serial protocol
 Once the Arduino script is uploaded and running onto the Arduino Uno board, the scanner can be control through serial protocol at 115200 bauds. The following commands are available : 
@@ -43,7 +47,7 @@ Once the Arduino script is uploaded and running onto the Arduino Uno board, the 
    
 Once the scan is launched (through s or y), it performs the XYZ coordinates conversion and ouputs all of the data throught serial port in the following manner : 
 
-`x y z h_idx v_idx distance `
+`x y z h_idx v_idx distance`
 
 With : 
 - x : x coordinate in 3D space
@@ -58,7 +62,8 @@ With :
 The `stepperScanner-serial2CSV.py` python script establishes serial communication with the Arduino Uno used for the 3D Lidar scanner. Once the script is launched, it stores incoming data (`x y z h_idx v_idx distance`) into a csv file.
 
 Usage is as follows (one can use `python stepperScaneer-serial2CSV.py -h` to check on the available option arguments) : 
-    `python stepperScanner-serial2CSV.py -p YOUR_ARDUINO_SERIAL_PORT -b 115200 -f /your/filepath/to/the/data/storage.csv`
+
+`python stepperScanner-serial2CSV.py -p YOUR_ARDUINO_SERIAL_PORT -b 115200 -f /your/filepath/to/the/data/storage.csv`
 
 Once the script is launched, the serial commands described above can be used to control the scanner.
 

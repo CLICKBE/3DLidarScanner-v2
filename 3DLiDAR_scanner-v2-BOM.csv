@@ -1,0 +1,7 @@
+Reference,Type,Quantity,Manufacturer,Link,Info
+Arduino Uno,Micrcontroller,1,Arduino,https://store.arduino.cc/products/arduino-uno-rev3,
+Arduino CNC Shield,Daughter card,1,Protoneer,https://blog.protoneer.co.nz/arduino-cnc-shield/,
+NEMA 17 ,Stepper Motor,2,Nema,https://www.gotronic.fr/cat-moteurs-pas-a-pas-1093.htm,
+Stepper holder,Support,1,Click,,
+TF-Mini-S,LiDAR,1,Beneware,https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm,
+TF-Mini-S holder,Support,1,Click,,
