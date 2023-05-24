@@ -23,8 +23,6 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 - External power : 12V, 2A
 - (optional) Maker Beam aluminium profiles and hardware or other.
 
-!!!Check !!!
-
 ### Connection
 
 ![3DLidarScanner with stepper connections](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/fritzing/3DLidarScanner-v2-connections.png?raw=true)
