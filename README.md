@@ -86,9 +86,9 @@ In order to use this script you will need free [Processing](https://processing.o
 ## License
  © 2022 – CLICK - Université de Mons
 
-3D LiDAR scanner - with stepper motors – CLICK - UMONS (Sami Yunus, Loïc Reboursière) is free software: you can redistribute it and/or modify it under the terms of the Apache License Version 2.0. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Apache License Version 2.0 for more details.
+3D LiDAR scanner v2 - with stepper motors – CLICK - UMONS (Loïc Reboursière, Maxime Vander Goten, Sami Yunus) is free software: you can redistribute it and/or modify it under the terms of the Apache License Version 2.0. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Apache License Version 2.0 for more details.
 You should have received a copy of the Apache License Version 2.0 along with this program.  If not, see http://www.apache.org/licenses/
-Each use of this software must be attributed to University of MONS – CLICK (Sami Yunus, Loïc Reboursière).
+Each use of this software must be attributed to University of MONS – CLICK (Loïc Reboursière, Maxime Vander Goten, Sami Yunus).
 Any other additional authorizations may be asked to avre@umons.ac.be.
 
 ## Legal Notices
