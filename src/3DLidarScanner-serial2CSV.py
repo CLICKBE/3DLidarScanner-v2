@@ -1,12 +1,33 @@
 '''
+#
+# 
+# * @file 3DLidarScanner-serial2CSV.py
+# * @author Loïc Reboursière, Maxime Vander Goten, Sami Yunus - UMONS, CLick (loic.reboursiere@umons.ac.be, maxime.vandergoten@umons.ac.be, sami.yunus@umons.ac.be)
+# * @brief This script communicates through serial with the 3DLidarScanner and can save to a csv file the cloudpoints delivered by the scanner
+# * 3DLidarScanner-serial2CSV.py – CLICK - UMONS (Loïc Reboursière, Maxime Vander Goten, Sami Yunus) is free software: you can redistribute it and/or modify it under the terms of the Apache License Version 2.0. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Apache License Version 2.0 for more details.
+# * You should have received a copy of the Apache License Version 2.0 along with this program.  If not, see http://www.apache.org/licenses/
+# * Each use of this software must be attributed to University of MONS – CLICK (Loïc Reboursière, Maxime Vander Goten, Sami Yunus).
+# * Any other additional authorizations may be asked to avre@umons.ac.be. 
+# * @version 0.1
+# * @date 2023-05-25
+# * 
+# * @copyright Copyright (c) 2023
+# 
+'''
+ 
 # Connect the 3D Arduino-based LiDAR scanner performing the scan and launch this file.
 # Use : 
 #   python stepperScanner-serial2CSV.py --port the_port_of_connected_arduino_board --baudrate 115200
 # 
-# Serial command :
-#    s : make a 3D scan
-#    y : make a 2D scan
-'''
+# Once the serial communication is established, you can send any serial commands the scanner responds to :
+#    - s : perform 2D scan
+#    - y : perform 1D scan (vertical)
+#    - i : display scanner setup info
+#    - v : followed by an integer value sets the vertical step (e.g. `v 1`)
+#    - h : followed by an integer value sets the horizontal step (e.g. `h 1`)
+#    - p : scan reboot
+#
+
 import csv
 from time import sleep
 
