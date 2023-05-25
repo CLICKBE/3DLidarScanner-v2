@@ -1,3 +1,20 @@
+/**
+ * 
+ * @file main.c
+ * @author Sami Yunus, Loïc Reboursière - UMONS, CLick (sami.yunus@umons.ac.be, loic.reboursiere@umons.ac.be)
+ * @brief This code is involved in the development of a 3D motorized LiDAR scanner. It controls two step motors (horizontal and vertical) which moves a LiDAR sensor.
+ * When the scan is completed, a 3D cloud point of the scene is obtained which can be used in different ways.
+ * 3DLidarScanner-v2 – CLICK - UMONS (Sami Yunus, Loïc Reboursière) is free software: you can redistribute it and/or modify it under the terms of the Apache License Version 2.0. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Apache License Version 2.0 for more details.
+ * You should have received a copy of the Apache License Version 2.0 along with this program.  If not, see http://www.apache.org/licenses/
+ * Each use of this software must be attributed to University of MONS – CLICK (Sami Yunus, Loïc Reboursière).
+ * Any other additional authorizations may be asked to avre@umons.ac.be. 
+ * @version 0.1
+ * @date 2023-05-25
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 // To use with TFMini-Plus library, https://github.com/budryerson/TFMini-Plus/tree/master
