@@ -42,7 +42,7 @@ More 3D models for steppers and LiDAR sensors can be found in a specific repo : 
 ## Using the 3D LiDAR scanner v2
 
 ### Library needed : 
-- TFMPlus : [https://github.com/budryerson/TFMini-Plus][(https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
+- TFMPlus : [https://github.com/budryerson/TFMini-Plus](https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
 - SoftwareSerial : included in Arduino framework
 
 ### Scanner serial protocol
