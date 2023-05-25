@@ -1,6 +1,6 @@
 # 3D LiDAR scanner v2 - With stepper motors
 
-This repository demonstrates a homemade 3D LiDAR scanner made out of a [Benewake TF-Mini](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) LiDAR sensor and 2 stepper motors [NEMA17](). This scanner can produce 3D cloud point of spaces.
+This repository demonstrates a homemade 3D LiDAR scanner made out of a [Benewake TF-Mini LiDAR sensor](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) and 2 stepper motors NEMA17 ([17HS4401](https://boutique.semageek.com/fr/1443-moteur-pas-a-pas-17hs4401-12v-nema17-200-pasrev-17a-3005762453528.html) and [Casun 42SHD0001-24B](http://www.all-electronics-online.com/china-828911685/42shd0001-24b-high-torque-12v-dc-nema-17-stepper-motor-for-3d-printer.html)). This scanner can produce 3D cloud point of spaces.
 The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed bracket. This stepper is fixed to the second stepper arm through another bracket. 
 
 
@@ -12,11 +12,18 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 - src/main.cpp : file to be uploaded to the Arduino Uno board
 - src/stepperScanner-serial2CSV.py : script to save scan data into a CSV file
 - 3D_supports : folder containing different 3D models for supports made 
-- fritzing : [Fritzing](https://fritzing.org/) file used to draw the connections picture
+- fritzing : [Fritzing](https://fritzing.org/) file used to draw the connection picture
 
-## Using the 3D LiDAR scanner v2
+## 3D parts
+
+To make this prototype we printed supports (that you can see on the picture above) : one to connect the two steppers together and the other one to support the LiDAR senor and connect it to one of the NEMA 17 stepper.
+
+If you need to edit the 3d models you can use the [Freecad](https://www.freecad.org/) files (*.FCStd).
+
+More 3D models for steppers and LiDAR sensors can be found in a specific repo : [https://github.com/CLICKBE/3DModelsFor3dPrinters](https://github.com/CLICKBE/3DModelsFor3dPrinters).
 
 ### Parts
+- [Benewake TF-Mini Lidar sensor](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) 
 - Arduino CNC Shield v3 : [https://blog.protoneer.co.nz/arduino-cnc-shield/](https://blog.protoneer.co.nz/arduino-cnc-shield/)
 - Horizontal stepper : [17HS4401](https://boutique.semageek.com/fr/1443-moteur-pas-a-pas-17hs4401-12v-nema17-200-pasrev-17a-3005762453528.html), NEMA 17, 12V, 1.7A, 200 step/rev
 - Vertical stepper : [Casun 42SHD0001-24B](http://www.all-electronics-online.com/china-828911685/42shd0001-24b-high-torque-12v-dc-nema-17-stepper-motor-for-3d-printer.html), NEMA17, 12V, 0.4A, 200 step/rev
