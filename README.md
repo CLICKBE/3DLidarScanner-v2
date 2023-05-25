@@ -14,13 +14,8 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 - 3D_supports : folder containing different 3D models for supports made 
 - fritzing : [Fritzing](https://fritzing.org/) file used to draw the connection picture
 
-## 3D parts
 
-To make this prototype we printed supports (that you can see on the picture above) : one to connect the two steppers together and the other one to support the LiDAR senor and connect it to one of the NEMA 17 stepper.
-
-If you need to edit the 3d models you can use the [Freecad](https://www.freecad.org/) files (*.FCStd).
-
-More 3D models for steppers and LiDAR sensors can be found in a specific repo : [https://github.com/CLICKBE/3DModelsFor3dPrinters](https://github.com/CLICKBE/3DModelsFor3dPrinters).
+## Elements to build the scanner
 
 ### Parts
 - [Benewake TF-Mini Lidar sensor](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) 
@@ -35,6 +30,16 @@ More 3D models for steppers and LiDAR sensors can be found in a specific repo : 
 ![3DLidarScanner with stepper connections](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/fritzing/3DLidarScanner-v2-connections.png?raw=true)
 
 Note that this diagram replicates the use of the Arduino CNC Shield v3 by using the same pin to connect the two drivers.
+
+### 3D models
+To make this prototype we printed supports (that you can see on the picture above) : one to connect the two steppers together and the other one to support the LiDAR senor and connect it to one of the NEMA 17 stepper.
+
+If you need to edit the 3d models you can use the [Freecad](https://www.freecad.org/) files (*.FCStd).
+
+More 3D models for steppers and LiDAR sensors can be found in a specific repo : [https://github.com/CLICKBE/3DModelsFor3dPrinters](https://github.com/CLICKBE/3DModelsFor3dPrinters).
+
+
+## Using the 3D LiDAR scanner v2
 
 ### Library needed : 
 - TFMPlus : [https://github.com/budryerson/TFMini-Plus][(https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
@@ -63,7 +68,7 @@ With :
 - distance : data coming from TF-Mini-s LiDAR sensor
 
 
-## Parsing data to CSV files
+### Parsing data to CSV files
 The `stepperScanner-serial2CSV.py` python script establishes serial communication with the Arduino Uno used for the 3D Lidar scanner. Once the script is launched, it stores incoming data (`x y z h_idx v_idx distance`) into a csv file.
 
 Usage is as follows (one can use `python stepperScaneer-serial2CSV.py -h` to check on the available option arguments) : 
@@ -72,7 +77,7 @@ Usage is as follows (one can use `python stepperScaneer-serial2CSV.py -h` to che
 
 Once the script is launched, the serial commands described above can be used to control the scanner.
 
-## 3D Visualization
+## 3D Visualization of the scan
 
 To perform a quick 3D visualization based on the serial data you can use the Processing script developed by Dana Peters : [LidarScanner.pde](https://drive.google.com/file/d/1D5wfzA8i0Pzh4qe-1skmpnqmhrvaq9d3/view?usp=drive_web) who also developped a [3D LiDAR scanner](https://www.qcontinuum.org/lidar-scanner).
 
