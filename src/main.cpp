@@ -1,6 +1,6 @@
 /**
  * 
- * @file main.c
+ * @file main.cpp
  * @author Loïc Reboursière, Maxime Vander Goten, Sami Yunus - UMONS, CLick (loic.reboursiere@umons.ac.be, maxime.vandergoten@umons.ac.be, sami.yunus@umons.ac.be)
  * @brief This code is involved in the development of a 3D motorized LiDAR scanner. It controls two step motors (horizontal and vertical) which moves a LiDAR sensor.
  * When the scan is completed, a 3D cloud point of the scene is obtained which can be used in different ways.

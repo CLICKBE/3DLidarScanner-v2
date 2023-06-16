@@ -1,4 +1,4 @@
-# 3D LiDAR scanner v2 - With stepper motors
+# 3D LiDAR scanner v2 - With stepper motors, Arduino UNO and Arduino CNC Shield v3
 
 This repository demonstrates a homemade 3D LiDAR scanner made out of a [Benewake TF-Mini LiDAR sensor](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) and 2 stepper motors NEMA17 ([17HS4401](https://boutique.semageek.com/fr/1443-moteur-pas-a-pas-17hs4401-12v-nema17-200-pasrev-17a-3005762453528.html) and [Casun 42SHD0001-24B](http://www.all-electronics-online.com/china-828911685/42shd0001-24b-high-torque-12v-dc-nema-17-stepper-motor-for-3d-printer.html)). This scanner can produce 3D cloud point of spaces.
 The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed bracket. This stepper is fixed to the second stepper arm through another bracket. 
@@ -41,6 +41,12 @@ More 3D models for steppers and LiDAR sensors can be found in a specific repo : 
 
 ## Using the 3D LiDAR scanner v2
 
+### Code
+
+This code has been developped with VSCode and PlatformIO backend. This repo therefore reproduced the fodler structure used in such project. Once you opened VSCode, open PlatformIO home page and hit Open Project button. Then, select the folder of the repository.
+
+If you don't know anything about VSCode and PlatformIO, here's a link to set you up : [https://platformio.org/install/ide?install=vscode](https://platformio.org/install/ide?install=vscode).
+
 ### Library needed : 
 - TFMPlus : [https://github.com/budryerson/TFMini-Plus](https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
 - SoftwareSerial : included in Arduino framework
@@ -82,6 +88,22 @@ Once the script is launched, the serial commands described above can be used to 
 To perform a quick 3D visualization based on the serial data you can use the Processing script developed by Dana Peters : [LidarScanner.pde](https://drive.google.com/file/d/1D5wfzA8i0Pzh4qe-1skmpnqmhrvaq9d3/view?usp=drive_web) who also developped a [3D LiDAR scanner](https://www.qcontinuum.org/lidar-scanner).
 
 In order to use this script you will need free [Processing](https://processing.org/) software.
+
+In order to send commands from this Processing sketch to the scanner, you can modified the `keyPressed()` function of the code by adding the following `else` condition to the `if, else if` statements that are present :  
+```java
+else 
+{
+    try 
+    {
+      serial.write( key );
+      println( "Sending command to scanner" );
+    }
+    catch (Exception e)
+    {
+      println( "Exception " + e );
+    }
+}
+```
 
 ## License
  © 2022 – CLICK - Université de Mons
