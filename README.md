@@ -9,20 +9,20 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 | The 3D LiDAR scanner| Example of 3D visualisation of the scanning |
 
 ## Files in the repository
-- src/main.cpp : file to be uploaded to the Arduino Uno board
-- src/stepperScanner-serial2CSV.py : script to save scan data into a CSV file
-- 3D_supports : folder containing different 3D models for supports made 
-- fritzing : [Fritzing](https://fritzing.org/) file used to draw the connection picture
+- src/main.cpp: file to be uploaded to the Arduino Uno board;
+- src/stepperScanner-serial2CSV.py: script to save scan data into a CSV file;
+- 3D_supports: folder containing different 3D models for supports made; 
+- fritzing: [Fritzing](https://fritzing.org/) file used to draw the connection picture.
 
 
 ## Elements to build the scanner
 
 ### Parts
-- [Benewake TF-Mini Lidar sensor](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm) 
-- Arduino CNC Shield v3 : [https://blog.protoneer.co.nz/arduino-cnc-shield/](https://blog.protoneer.co.nz/arduino-cnc-shield/)
-- Horizontal stepper : [17HS4401](https://boutique.semageek.com/fr/1443-moteur-pas-a-pas-17hs4401-12v-nema17-200-pasrev-17a-3005762453528.html), NEMA 17, 12V, 1.7A, 200 step/rev
-- Vertical stepper : [Casun 42SHD0001-24B](http://www.all-electronics-online.com/china-828911685/42shd0001-24b-high-torque-12v-dc-nema-17-stepper-motor-for-3d-printer.html), NEMA17, 12V, 0.4A, 200 step/rev
-- External power : 12V, 2A
+- Benewake TF-Mini Lidar sensor: [https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm](https://www.gotronic.fr/art-capteur-de-distance-lidar-tf-mini-27615.htm); 
+- Arduino CNC Shield v3: [https://blog.protoneer.co.nz/arduino-cnc-shield/](https://blog.protoneer.co.nz/arduino-cnc-shield/);
+- Horizontal stepper: [17HS4401](https://boutique.semageek.com/fr/1443-moteur-pas-a-pas-17hs4401-12v-nema17-200-pasrev-17a-3005762453528.html), NEMA 17, 12V, 1.7A, 200 step/rev;
+- Vertical stepper: [Casun 42SHD0001-24B](http://www.all-electronics-online.com/china-828911685/42shd0001-24b-high-torque-12v-dc-nema-17-stepper-motor-for-3d-printer.html), NEMA17, 12V, 0.4A, 200 step/rev;
+- External power: 12V, 2A;
 - (optional) Maker Beam aluminium profiles and hardware or other.
 
 ### Connection
@@ -32,7 +32,7 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 Note that this diagram replicates the use of the Arduino CNC Shield v3 by using the same pin to connect the two drivers.
 
 ### 3D models
-To make this prototype we printed supports (that you can see on the picture above) : one to connect the two steppers together and the other one to support the LiDAR senor and connect it to one of the NEMA 17 stepper.
+To make this prototype we printed supports (that you can see on the picture above): one to connect the two steppers together and the other one to support the LiDAR senor and connect it to one of the NEMA 17 stepper.
 
 If you need to edit the 3d models you can use the [Freecad](https://www.freecad.org/) files (*.FCStd).
 
@@ -43,35 +43,35 @@ More 3D models for steppers and LiDAR sensors can be found in a specific repo : 
 
 ### Code
 
-This code has been developped with VSCode and PlatformIO backend. This repo therefore reproduced the fodler structure used in such project. Once you opened VSCode, open PlatformIO home page and hit Open Project button. Then, select the folder of the repository.
+This code has been developed with VSCode and PlatformIO backend. This repo therefore reproduced the folder structure used in such project. Once you opened VSCode, open PlatformIO home page and hit Open Project button. Then, select the folder of the repository.
 
 If you don't know anything about VSCode and PlatformIO, here's a link to set you up : [https://platformio.org/install/ide?install=vscode](https://platformio.org/install/ide?install=vscode).
 
 ### Library needed : 
-- TFMPlus : [https://github.com/budryerson/TFMini-Plus](https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
-- SoftwareSerial : included in Arduino framework
+- TFMPlus: [https://github.com/budryerson/TFMini-Plus](https://github.com/budryerson/TFMini-Plus). The library is not included in this git repository but is referenced in the [platformio.ini](https://github.com/CLICKBE/3DLidarScanner-v2/blob/main/platformio.ini) file and therefore should directly be downloaded by PlatformIO extension of VSCode when building the code.
+- SoftwareSerial: included in Arduino framework
 
 ### Scanner serial protocol
 Once the Arduino script is uploaded and running onto the Arduino Uno board, the scanner can be control through serial protocol at 115200 bauds. The following commands are available : 
 
-- s : perform 2D scan
-- y : perform 1D scan (vertical)
-- i : display scanner setup info
-- v : followed by an integer value sets the vertical step (e.g. `v 1`)
-- h : followed by an integer value sets the horizontal step (e.g. `h 1`)
-- p : scan reboot
+- s : perform 2D scan;
+- y : perform 1D scan (vertical);
+- i : display scanner setup info;
+- v : followed by an integer value sets the vertical step (e.g. `v 1`);
+- h : followed by an integer value sets the horizontal step (e.g. `h 1`);
+- p : scan reboot.
    
-Once the scan is launched (through s or y), it performs the XYZ coordinates conversion and ouputs all of the data throught serial port in the following manner : 
+Once the scan is launched (through s or y), it performs the XYZ coordinates conversion and ouputs all of the data through serial port in the following manner : 
 
 `x y z h_idx v_idx distance`
 
 With : 
-- x : x coordinate in 3D space
-- y : y coordinate in 3D space
-- z : z coordinate in 3D space
-- h_idx : horizontal index of the scan
-- v_idx vertical index of the scan
-- distance : data coming from TF-Mini-s LiDAR sensor
+- x: x coordinate in 3D space;
+- y: y coordinate in 3D space;
+- z: z coordinate in 3D space;
+- h_idx: horizontal index of the scan;
+- v_idx: vertical index of the scan;
+- distance: data coming from TF-Mini-s LiDAR sensor.
 
 
 ### Parsing data to CSV files
@@ -85,9 +85,9 @@ Once the script is launched, the serial commands described above can be used to 
 
 ## 3D Visualization of the scan
 
-To perform a quick 3D visualization based on the serial data you can use the Processing script developed by Dana Peters : [LidarScanner.pde](https://drive.google.com/file/d/1D5wfzA8i0Pzh4qe-1skmpnqmhrvaq9d3/view?usp=drive_web) who also developped a [3D LiDAR scanner](https://www.qcontinuum.org/lidar-scanner).
+To perform a quick 3D visualization based on the serial data you can use the Processing script developed by Dana Peters : [LidarScanner.pde](https://drive.google.com/file/d/1D5wfzA8i0Pzh4qe-1skmpnqmhrvaq9d3/view?usp=drive_web) who also developed a [3D LiDAR scanner](https://www.qcontinuum.org/lidar-scanner).
 
-In order to use this script you will need free [Processing](https://processing.org/) software.
+In order to use this script, you will need free [Processing](https://processing.org/) software.
 
 In order to send commands from this Processing sketch to the scanner, you can modified the `keyPressed()` function of the code by adding the following `else` condition to the `if, else if` statements that are present :  
 ```java
