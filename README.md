@@ -11,7 +11,7 @@ The LiDAR sensor is fixed on one stepper arm with the help of a 3D printed brack
 ## Files in the repository
 - src/main.cpp: file to be uploaded to the Arduino Uno board;
 - src/stepperScanner-serial2CSV.py: script to save scan data into a CSV file;
-- 3D_supports: folder containing different 3D models for supports made; 
+- 3D_support: folder containing different 3D models for supports made; 
 - fritzing: [Fritzing](https://fritzing.org/) file used to draw the connection picture.
 
 
